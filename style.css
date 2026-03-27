@@ -67,8 +67,8 @@ h1 {
 }
 
 .header-photo {
-  width: 96px;
-  height: 96px;
+  width: 154px;
+  height: 154px;
   object-fit: cover;
   border-radius: 50%;
   flex-shrink: 0;
