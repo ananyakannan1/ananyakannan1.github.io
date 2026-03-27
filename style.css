@@ -1,6 +1,7 @@
 :root {
-  --black: #0d0d0d;
-  --white: #faf9f7;
+  --cream: #f5f2ec;
+  --crimson: #8b1a1a;
+  --ink: #0d0d0d;
   --muted: #888;
   --rule: #dddbd7;
 }
@@ -16,9 +17,9 @@ html {
 }
 
 body {
-  background: var(--white);
-  color: var(--black);
-  font-family: 'EB Garamond', Georgia, serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
@@ -56,23 +57,26 @@ header {
 }
 
 h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(2.8rem, 8vw, 4.2rem);
-  font-weight: 300;
+  font-weight: 400;
+  font-style: italic;
   letter-spacing: -0.02em;
   line-height: 1;
+  color: var(--crimson);
 }
 
 .header-photo {
   width: 96px;
   height: 96px;
   object-fit: cover;
+  border-radius: 50%;
   flex-shrink: 0;
 }
 
 .rule {
   height: 1px;
-  background: var(--black);
+  background: var(--ink);
 }
 
 /* ── Sections ── */
@@ -82,8 +86,8 @@ section {
 }
 
 h2 {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 0.7rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -102,21 +106,25 @@ h2 {
 }
 
 h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 500;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 400;
   font-style: italic;
-  margin-bottom: 4px;
+  color: var(--crimson);
+  margin-bottom: 6px;
   line-height: 1.4;
 }
 
 p {
-  font-size: 1rem;
-  color: #2c2c2c;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.8;
 }
 
 a {
-  color: var(--black);
+  color: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
@@ -125,25 +133,34 @@ a {
 }
 
 a:hover {
-  text-decoration-color: var(--black);
+  text-decoration-color: var(--ink);
+}
+
+h3 a {
+  color: var(--crimson);
+  text-decoration-color: rgba(139, 26, 26, 0.3);
+}
+
+h3 a:hover {
+  text-decoration-color: var(--crimson);
 }
 
 .links {
   margin-top: 10px;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  gap: 12px;
 }
 
 .links a {
-  font-size: 0.95rem;
+  font-size: 0.78rem;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .links a:hover {
-  color: var(--black);
+  color: var(--ink);
 }
 
 /* ── Footer ── */
@@ -153,40 +170,7 @@ footer {
 }
 
 .footer-inner {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
   padding-top: 32px;
-}
-
-
-.easter-egg {
-  text-align: right;
-}
-
-.easter-egg #counter {
-  font-size: 0.8rem;
-  font-style: italic;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-#MyButton {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 0.8rem;
-  background: none;
-  border: 1px solid var(--rule);
-  color: var(--muted);
-  padding: 4px 14px;
-  cursor: pointer;
-  letter-spacing: 0.06em;
-  transition: border-color 0.2s, color 0.2s;
-}
-
-#MyButton:hover {
-  border-color: var(--black);
-  color: var(--black);
 }
 
 /* ── Mobile ── */
@@ -194,14 +178,5 @@ footer {
 @media (max-width: 480px) {
   .container {
     padding: 48px 24px 64px;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .easter-egg {
-    text-align: left;
   }
 }
