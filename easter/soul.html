@@ -3,32 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>devotions</title>
+  <title>art that dominates my heart</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:       #0b0912;
-      --text:     #f0eaf8;
-      --label:    #7a6a99;
-      --faint:    #1e1730;
-      --border:   #2e2448;
-      --pink:     #de6fa0;
-      --pink-b:   #f08ec1;
-      --violet:   #a78bfa;
-      --v-dim:    #3d2e6b;
+      --bg:      #0b0912;
+      --text:    #f0eaf8;
+      --accent:  #a78bfa;
+      --accent-b:#c4b5fd;
+      --label:   #7a6a99;
+      --faint:   #1e1730;
+      --border:  #2e2448;
+      --v-dim:   #3d2e6b;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { font-size: 18px; }
 
     body {
       background: var(--bg);
       background-image:
-        radial-gradient(ellipse 60% 50% at 80% 10%, #1f0f35 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 20% 90%, #1a0b28 0%, transparent 55%);
+        radial-gradient(ellipse 70% 55% at 80% 10%, #1f0f35 0%, transparent 58%),
+        radial-gradient(ellipse 55% 60% at 18% 88%, #160b2a 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 50% 50%, #130e20 0%, transparent 70%);
       color: var(--text);
       font-family: 'Crimson Pro', Georgia, serif;
       font-weight: 300;
@@ -52,83 +51,97 @@
       padding: 72px 44px 160px;
     }
 
-    /* Staggered reveal */
     .reveal {
       opacity: 0;
       transform: translateY(14px);
       animation: rise 1.2s cubic-bezier(.16,1,.3,1) forwards;
     }
     .reveal:nth-child(1) { animation-delay: 0.05s; }
-    .reveal:nth-child(2) { animation-delay: 0.2s; }
-    .reveal:nth-child(3) { animation-delay: 0.5s; }
+    .reveal:nth-child(2) { animation-delay: 0.25s; }
+    .reveal:nth-child(3) { animation-delay: 0.55s; }
     .reveal:nth-child(4) { animation-delay: 0.8s; }
-    .reveal:nth-child(5) { animation-delay: 1.0s; }
 
     @keyframes rise {
       to { opacity: 1; transform: none; }
     }
 
-    /* Header */
+    /* ── Header ── */
     .found {
       font-family: 'DM Mono', monospace;
       font-size: 0.62rem;
+      color: var(--accent);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .found-text {
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--violet);
-      margin-bottom: 18px;
+    }
+
+    .stars {
+      display: inline-block;
+      letter-spacing: 0.04em;
+      font-size: 0.72rem;
+      animation: stars-shimmer 3s ease-in-out infinite;
+    }
+    .stars.right { animation-delay: 1.1s; }
+
+    @keyframes stars-shimmer {
+      0%, 100% { opacity: 0.55; transform: translateY(0); }
+      35%       { opacity: 1;    transform: translateY(-1px); }
+      70%       { opacity: 0.7;  transform: translateY(1px); }
     }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-size: clamp(2rem, 6vw, 3.2rem);
       font-weight: 300;
       font-style: italic;
-      line-height: 1.2;
+      line-height: 1.18;
       letter-spacing: -0.015em;
       color: var(--text);
-      margin-bottom: 80px;
+      margin-bottom: 40px;
     }
 
-    /* Quotes */
-    .quotes { display: flex; flex-direction: column; gap: 36px; margin-bottom: 72px; }
+    /* ── Epigraphs ── */
+    .epigraphs {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 80px;
+      padding-left: 2px;
+    }
 
-    .quote-text {
+    .epigraph-text {
       font-family: 'Crimson Pro', serif;
-      font-size: 0.95rem;
       font-style: italic;
-      font-weight: 300;
+      font-size: 0.95rem;
       line-height: 1.65;
       color: var(--text);
       opacity: 0.72;
-      margin-bottom: 10px;
+      margin-bottom: 7px;
     }
 
-    .quote-text::before {
-      content: '\201C';
-      color: var(--pink);
-      font-style: normal;
-      opacity: 1;
-    }
-    .quote-text::after {
-      content: '\201D';
-      color: var(--pink);
-      font-style: normal;
-      opacity: 1;
-    }
+    .epigraph-text::before { content: '\201C'; color: var(--accent); opacity: 1; }
+    .epigraph-text::after  { content: '\201D'; color: var(--accent); opacity: 1; }
 
-    .quote-source {
+    .epigraph-source {
       font-family: 'DM Mono', monospace;
       font-size: 0.55rem;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--label);
     }
 
-    /* Divider */
+    /* ── Divider ── */
     .divider {
       height: 1px;
       background: var(--border);
-      margin: 80px 0;
+      margin: 72px 0;
       position: relative;
     }
 
@@ -144,36 +157,26 @@
       padding: 0 14px;
     }
 
-    /* Timeline */
-    .timeline-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--label);
-      margin-bottom: 56px;
-    }
-
+    /* ── Timeline ── */
     .years { display: flex; flex-direction: column; gap: 52px; }
 
     .year-number {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 5.5rem;
+      font-size: 6.2rem;
       font-weight: 300;
       line-height: 0.85;
-      color: #3a2d5c;
+      color: #3e3168;
       letter-spacing: -0.03em;
       margin-bottom: 20px;
       user-select: none;
     }
 
-    .year-items { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .year-items { list-style: none; display: flex; flex-direction: column; gap: 4px; }
 
     .year-item {
       font-family: 'Crimson Pro', serif;
       font-style: italic;
       font-size: 1.05rem;
-      color: var(--text);
       padding: 5px 0;
       border-bottom: 1px solid transparent;
       transition: border-color 0.25s ease, padding-left 0.25s ease;
@@ -190,16 +193,16 @@
       padding-left: 6px;
     }
 
-    .year-item a:hover { color: #c4b5fd; }
+    .year-item a:hover { color: var(--accent-b); }
 
-    /* Footer */
+    /* ── Footer ── */
     .footer {
       margin-top: 120px;
       text-align: center;
       font-family: 'DM Mono', monospace;
       font-size: 0.58rem;
       letter-spacing: 0.2em;
-      color: #1e1730;
+      color: var(--faint);
       user-select: none;
     }
 
@@ -213,30 +216,31 @@
   <div class="page">
 
     <header class="reveal">
-      <p class="found">✦ you found something</p>
-      <h1>devotions</h1>
-    </header>
+      <p class="found">
+        <span class="stars left">⋆ ˚ ✦ · ⊹ ˚ ✧</span>
+        <span class="found-text">you found something</span>
+        <span class="stars right">✧ ˚ ⊹ · ✦ ˚ ⋆</span>
+      </p>
+      <h1>art that dominates<br>my heart</h1>
 
-    <section class="reveal">
-      <div class="quotes">
-        <div class="quote-block">
-          <p class="quote-text">For the most important inquiry, however, there is a method. Let the young soul survey its own life with a view of the following question: "What have you truly loved thus far? What has ever uplifted your soul, what has dominated and delighted it at the same time?" Assemble these revered objects in a row before you and perhaps they will reveal a law by their nature and their order: the fundamental law of your very self.</p>
-          <p class="quote-source">Friedrich Nietzsche</p>
+      <div class="epigraphs">
+        <div class="epigraph">
+          <p class="epigraph-text">For the most important inquiry, however, there is a method. Let the young soul survey its own life with a view of the following question: "What have you truly loved thus far? What has ever uplifted your soul, what has dominated and delighted it at the same time?" Assemble these revered objects in a row before you and perhaps they will reveal a law by their nature and their order: the fundamental law of your very self.</p>
+          <p class="epigraph-source">Friedrich Nietzsche</p>
         </div>
 
-        <div class="quote-block">
-          <p class="quote-text">I wanna be defined by the things that I love. Not the things I hate, not the things I'm afraid of, or the things that haunt me in the middle of the night. I just think that you are what you love.</p>
-          <p class="quote-source">Taylor Swift — Daylight</p>
+        <div class="epigraph">
+          <p class="epigraph-text">I wanna be defined by the things that I love. Not the things I hate, not the things I'm afraid of, or the things that haunt me in the middle of the night. I just think that you are what you love.</p>
+          <p class="epigraph-source">Taylor Swift — Daylight</p>
         </div>
       </div>
-    </section>
+    </header>
 
     <div class="divider reveal"></div>
 
     <section class="reveal">
-      <p class="timeline-label">things that dominate my heart</p>
-
       <div class="years">
+
         <div class="year-block">
           <p class="year-number">2022</p>
           <ul class="year-items">
@@ -271,6 +275,7 @@
             <li class="year-item"><a href="https://www.amazon.com/Beauty-Being-Just-Elaine-Scarry/dp/0691089590" target="_blank">on beauty and being just</a></li>
           </ul>
         </div>
+
       </div>
     </section>
 
