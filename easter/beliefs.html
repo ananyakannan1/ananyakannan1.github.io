@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>beliefs</title>
+  <title>things i believe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:      #0f0508;
-      --text:    #f7e5ec;
-      --accent:  #d4607e;
-      --accent-b:#f08eb8;
-      --label:   #8a4a5e;
-      --faint:   #2a0e18;
-      --border:  #3d1825;
+      --bg:     #0b0912;
+      --text:   #f0eaf8;
+      --label:  #7a6a99;
+      --faint:  #1e1730;
+      --border: #2e2448;
+      --pink:   #de6fa0;
+      --pink-b: #f08ec1;
+      --violet: #a78bfa;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     html { font-size: 18px; }
 
     body {
       background: var(--bg);
       background-image:
-        radial-gradient(ellipse 80% 60% at 12% 18%, #2e0d14 0%, transparent 55%),
-        radial-gradient(ellipse 55% 55% at 88% 88%, #1e0810 0%, transparent 50%),
-        radial-gradient(ellipse 40% 40% at 50% 50%, #1a0a10 0%, transparent 70%);
+        radial-gradient(ellipse 70% 50% at 10% 5%, #1a0f2e 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 90% 95%, #1a0e1f 0%, transparent 55%);
       color: var(--text);
       font-family: 'Crimson Pro', Georgia, serif;
       font-weight: 300;
@@ -39,7 +40,7 @@
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.045;
+      opacity: 0.04;
       pointer-events: none;
       z-index: 1000;
     }
@@ -50,48 +51,29 @@
       padding: 72px 44px 160px;
     }
 
+    /* Staggered reveal */
     .reveal {
       opacity: 0;
       transform: translateY(14px);
       animation: rise 1.2s cubic-bezier(.16,1,.3,1) forwards;
     }
     .reveal:nth-child(1) { animation-delay: 0.05s; }
-    .reveal:nth-child(2) { animation-delay: 0.25s; }
-    .reveal:nth-child(3) { animation-delay: 0.55s; }
+    .reveal:nth-child(2) { animation-delay: 0.2s; }
+    .reveal:nth-child(3) { animation-delay: 0.5s; }
+    .reveal:nth-child(4) { animation-delay: 0.8s; }
 
     @keyframes rise {
       to { opacity: 1; transform: none; }
     }
 
-    /* ── Header ── */
+    /* Header */
     .found {
       font-family: 'DM Mono', monospace;
       font-size: 0.62rem;
-      color: var(--accent);
-      margin-bottom: 18px;
-      display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .found-text {
       letter-spacing: 0.18em;
       text-transform: uppercase;
-    }
-
-    .stars {
-      display: inline-block;
-      letter-spacing: 0.04em;
-      font-size: 0.72rem;
-      animation: stars-shimmer 3s ease-in-out infinite;
-    }
-    .stars.right { animation-delay: 1.1s; }
-
-    @keyframes stars-shimmer {
-      0%, 100% { opacity: 0.55; transform: translateY(0); }
-      35%       { opacity: 1;    transform: translateY(-1px); }
-      70%       { opacity: 0.7;  transform: translateY(1px); }
+      color: var(--pink);
+      margin-bottom: 18px;
     }
 
     h1 {
@@ -102,7 +84,7 @@
       line-height: 1.12;
       letter-spacing: -0.015em;
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .header-date {
@@ -113,7 +95,7 @@
       margin-bottom: 88px;
     }
 
-    /* ── Beliefs ── */
+    /* Beliefs */
     .beliefs { list-style: none; display: flex; flex-direction: column; gap: 40px; }
 
     .belief {
@@ -130,9 +112,10 @@
       top: 1px;
       font-family: 'DM Mono', monospace;
       font-size: 0.75rem;
-      color: var(--accent);
+      color: var(--violet);
     }
 
+    /* Nested items — same color, same weight */
     .belief .indent {
       margin-top: 16px;
       padding-left: 20px;
@@ -153,18 +136,18 @@
       font-family: 'DM Mono', monospace;
       font-size: 0.7rem;
       font-style: normal;
-      color: var(--accent);
+      color: var(--violet);
       margin-right: 2px;
     }
 
-    /* ── Footer ── */
+    /* Footer */
     .footer {
       margin-top: 120px;
       text-align: center;
       font-family: 'DM Mono', monospace;
       font-size: 0.58rem;
       letter-spacing: 0.2em;
-      color: var(--faint);
+      color: #1e1730;
       user-select: none;
     }
 
@@ -177,43 +160,38 @@
   <div class="page">
 
     <header class="reveal">
-      <p class="found">
-        <span class="stars left">⋆ ˚ ✦ · ⊹ ˚ ✧</span>
-        <span class="found-text">you found something</span>
-        <span class="stars right">✧ ˚ ⊹ · ✦ ˚ ⋆</span>
-      </p>
+      <p class="found">✦ you found something</p>
       <h1>beliefs</h1>
       <p class="header-date">march 22 · 2025</p>
     </header>
 
     <section class="reveal">
       <ul class="beliefs">
-
         <li class="belief">
-          the default state of the world is entropy. anything that isn't pure chaos has fought to be that way. if you think about this for enough time you realize that every brick on the road is the result of billions of years of the fight against entropy
+          the default state of the world is entropy. anything that isn't pure chaos has fought to be that way. if you think about this for enough time you realize that the brick on the road is the result of millions of years of the fight against entropy
+        </li>
+        <li class="belief">
+          related to the previous thought, it's INCREDIBLY hard to build systems that last on literally any scale
           <div class="indent">
-            <span>related to the previous thought, it's INCREDIBLY hard to build systems that last on literally any scale</span>
             <span>don't beat yourself up for not having a good systematic habit stack — your cells are literally fighting every second to not fall apart. you're doing amazing my love</span>
-            <span>anything that's not just pure CHAOS is constantly fighting to be that way. your suboptimally organized personal project riddled with erors is absolutely wonderful sweetie</span>
+            <span>anything that's not just pure CHAOS is constantly fighting to be that way. your suboptimal personal knowledge management system is doing amazing sweetie</span>
           </div>
         </li>
-
         <li class="belief">
-          beauty is one of the truest moral compasses. i don't care about right and wrong — i care about beauty. as a result it is my duty to create beauty around me. beauty can be an amazing conversation or a piece of scalable software or a good grade or a piece of watercolor art or a walk in the park in the rain
+          beauty is one of the truest moral compasses. i don't care about right and wrong — i care about beauty. as a result it is my duty to create beauty around me. beauty can be an amazing conversation or a piece of scalable software or a good grade or a piece of watercolor art.
         </li>
-
         <li class="belief">
-          chip away slowly at things. expect most things to go really badly and for you to underperform. most beautiful projects are the result of hundreds or thousands of false starts where the soul yearned to have beauty expressed in the world, mostly even unbeknownst to the creator.
+          chip away slowly at things. expect most things to go really badly and for you to underperform.
+          <div class="indent">
+            <span>most beautiful projects are the result of hundreds or thousands of false starts where the soul yearned to have beauty expressed in the world, mostly even unbeknownst to the creator.</span>
+          </div>
         </li>
-
         <li class="belief">
-          it's not possible to separate art from the artist. art is an expression of humanity. be more merciful towards artists' imperfections and worldviews
+          it's not possible to separate art from the artist. art is an expression of humanity. i also don't really care if an artist is racist/sexist/transphobic sorry!
         </li>
-
         <li class="belief">
-          most people don't know how the world works properly — i don't mean like science but more like the actual laws that govern the universe and society and how world changing technology is created and maintained. love is the only reason that any of this exists. i must remember this every day.
+          most people don't know how the world works properly — i don't mean like science but more like the actual laws that govern the universe. people don't know how love works and how love is the reason society exists
         </li>
-
       </ul>
     </section>
 
