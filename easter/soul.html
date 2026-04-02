@@ -104,8 +104,24 @@
       margin-bottom: 18px;
     }
 
-    .quote-text::before { content: '\201C'; color: var(--pink); }
-    .quote-text::after  { content: '\201D'; color: var(--pink); }
+    .quote-text::before {
+      content: '\201C';
+      color: var(--pink);
+      font-style: normal;
+      font-size: 1.3em;
+      line-height: 0;
+      vertical-align: -0.15em;
+      margin-right: 0.05em;
+    }
+    .quote-text::after {
+      content: '\201D';
+      color: var(--pink);
+      font-style: normal;
+      font-size: 1.3em;
+      line-height: 0;
+      vertical-align: -0.15em;
+      margin-left: 0.05em;
+    }
 
     .quote-source {
       font-family: 'DM Mono', monospace;
@@ -152,7 +168,7 @@
       font-size: 5.5rem;
       font-weight: 300;
       line-height: 0.85;
-      color: var(--faint);
+      color: #3a2d5c;
       letter-spacing: -0.03em;
       margin-bottom: 20px;
       user-select: none;
