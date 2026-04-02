@@ -81,5 +81,95 @@
 
   </div>
   <script src="script.js"></script>
+
+  <!-- easter eggs -->
+  <style>
+    .easter-spark {
+      position: fixed;
+      font-size: 1.125rem;
+      text-decoration: none;
+      cursor: pointer;
+      z-index: 9999;
+      user-select: none;
+      line-height: 1;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .easter-spark:hover {
+      opacity: 1 !important;
+      transform: scale(1.6) rotate(20deg);
+    }
+    .easter-spark-1 { color: #de6fa0; }
+    .easter-spark-2 { color: #a78bfa; }
+    @keyframes wander-1 {
+      0%   { opacity: 0.35; transform: translate(0, 0)       rotate(0deg);   }
+      20%  { opacity: 0.55; transform: translate(5px, -7px)  rotate(18deg);  }
+      45%  { opacity: 0.4;  transform: translate(-4px, 4px)  rotate(-12deg); }
+      70%  { opacity: 0.6;  transform: translate(6px, 6px)   rotate(25deg);  }
+      100% { opacity: 0.35; transform: translate(0, 0)       rotate(0deg);   }
+    }
+    @keyframes wander-2 {
+      0%   { opacity: 0.3;  transform: translate(0, 0)       rotate(0deg);   }
+      25%  { opacity: 0.5;  transform: translate(-6px, 5px)  rotate(-20deg); }
+      55%  { opacity: 0.55; transform: translate(4px, -6px)  rotate(14deg);  }
+      80%  { opacity: 0.35; transform: translate(-3px, -4px) rotate(-8deg);  }
+      100% { opacity: 0.3;  transform: translate(0, 0)       rotate(0deg);   }
+    }
+    .easter-spark-1 { animation: wander-1 6s ease-in-out infinite; }
+    .easter-spark-2 { animation: wander-2 7.5s ease-in-out 1.2s infinite; }
+    .easter-spark:hover { animation: none !important; }
+  </style>
+  <script>
+    (function () {
+      // Collect bounding rects of all elements that directly contain text
+      function getTextRects(buf) {
+        var rects = [];
+        document.querySelectorAll('*').forEach(function (el) {
+          var hasText = Array.from(el.childNodes).some(function (n) {
+            return n.nodeType === 3 && n.textContent.trim().length > 0;
+          });
+          if (hasText) {
+            var r = el.getBoundingClientRect();
+            if (r.width > 0 && r.height > 0) {
+              rects.push({ l: r.left - buf, r: r.right + buf, t: r.top - buf, b: r.bottom + buf });
+            }
+          }
+        });
+        return rects;
+      }
+
+      function overlaps(x, y, rects) {
+        return rects.some(function (r) { return x >= r.l && x <= r.r && y >= r.t && y <= r.b; });
+      }
+
+      function findSpot(xMin, xMax, yMin, yMax, rects) {
+        var pad = 48, vw = window.innerWidth, vh = window.innerHeight;
+        for (var i = 0; i < 80; i++) {
+          var x = pad + (xMin + Math.random() * (xMax - xMin)) * (vw - pad * 2) / 100;
+          var y = pad + (yMin + Math.random() * (yMax - yMin)) * (vh - pad * 2) / 100;
+          if (!overlaps(x, y, rects)) return { x: x, y: y };
+        }
+        // fallback: stick to the far edge of the quadrant where content is unlikely
+        return { x: pad + xMin * (vw - pad * 2) / 100, y: pad + yMin * (vh - pad * 2) / 100 };
+      }
+
+      function placeSparkle(cls, href, xMin, xMax, yMin, yMax, rects) {
+        var pos = findSpot(xMin, xMax, yMin, yMax, rects);
+        var el = document.createElement('a');
+        el.className = 'easter-spark ' + cls;
+        el.href = href;
+        el.textContent = '✦';
+        el.setAttribute('aria-hidden', 'true');
+        el.style.left = pos.x + 'px';
+        el.style.top  = pos.y + 'px';
+        document.body.appendChild(el);
+      }
+
+      window.addEventListener('load', function () {
+        var rects = getTextRects(24);
+        placeSparkle('easter-spark-1', '/easter/beliefs.html',  5, 45, 20, 75, rects);
+        placeSparkle('easter-spark-2', '/easter/soul.html',    55, 90, 20, 75, rects);
+      });
+    })();
+  </script>
 </body>
 </html>
