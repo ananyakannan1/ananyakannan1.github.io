@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gamification is the future of education</title>
+  <meta name="description" content="An essay about gamifying education, gamified. Play it.">
+  <meta property="og:title" content="gamification is the future of education">
+  <meta property="og:description" content="An essay about gamifying education, gamified. How many hooks will you catch?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Jersey+10&family=Inter:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="reading.css?v=3">
+</head>
+<body>
+
+<div id="sky" aria-hidden="true"></div>
+<div id="flock" aria-hidden="true"></div>
+
+<!-- HUD: title, XP, stamps. Progress starts at 10%, because you read the title. -->
+<header id="hud">
+  <button id="hudMap" class="hud-btn" aria-label="Open quest map">MAP</button>
+  <div class="hud-main">
+    <div class="hud-row">
+      <span id="hudTitle" class="hud-title">Scroller</span>
+      <span class="hud-xp"><span id="hudXp" class="num">0</span> XP</span>
+    </div>
+    <div class="bar" aria-hidden="true"><div id="hudBar" class="bar-fill"></div></div>
+  </div>
+  <button id="hudStamps" class="hud-chip" aria-label="Open egg card"><span class="ico-egg"></span><span class="num" id="hudStampN">0</span>/<span class="num" id="hudStampOf">8</span><span class="lbl">eggs</span></button>
+  <button id="hudEggs" class="hud-chip" aria-label="Hidden eggs found"><span class="ico-egg"></span><span class="num" id="hudEggN">0</span>/3<span class="lbl">eggs</span></button>
+  <button id="hudKeys" class="hud-chip" aria-label="Keys found" hidden>🔑 <span class="num" id="hudKeyN">0</span>/5</button>
+</header>
+
+<!-- Quest map. A sidebar on wide screens, an overlay on phones. -->
+<aside id="map" aria-label="Quest map">
+  <div class="map-head">QUEST</div>
+  <div id="mapBody"></div>
+  <div class="map-pct" id="mapHere"></div>
+  <div class="map-legend"><span><span class="ico-sign"></span>game</span><span><span class="ico-chest"></span>easter egg</span><span><span class="ico-stop"></span>section</span></div>
+</aside>
+
+<main id="essay" class="paper">
+
+  <h1>gamification is the future of education</h1>
+  <p class="byline">by <a href="https://ananya.ink">Ananya Kannan</a></p>
+
+  <div class="howto">
+    <div class="howto-h">HOW THIS WORKS</div>
+    <div class="howto-grid">
+      <div><span class="ico-star"></span><b>XP</b>the more you read and interact with this essay, the more you earn! you’ll get a score at the end</div>
+      <div><span class="ico-egg"></span><b>Eggs</b>finding secrets and beating games helps you unlock cute eggs hidden in the essay</div>
+      <div><span class="ico-chest"></span><b>The reveal</b>At the end, see the different hacks this essay used to hook you. Which ones did you catch, which ones did you miss?</div>
+    </div>
+  </div>
+
+  <section class="ch" data-ch="0" data-label="Start">
+    <p>I’ve been working as a teacher the last few months at an experimental online school. This was a huge pivot from my previous work and has changed me in ways I never would have thought. I will likely write at length about how teaching has altered my character. For now, though, I want to talk about a conviction that has solidified over the past few months: gamification is the future of education, soon to be indistinguishable from education altogether.<span class="greydot" role="button" aria-label="a small grey dot"><i></i></span></p>
+    <div class="badge-slot" data-badge="0"></div>
+
+    <p>This is a topic that has been discussed in education at length and is pretty contentious. I honestly don’t know where I stand on this topic; should learning be hacked and gamified? That being said, I think it’s important to take a good, hard look at the current dismal state of attention markets and actually figure out what can be done to help people learn.</p>
+  </section>
+
+  <section class="ch" data-ch="1" data-label="Hijacked">
+    <h2>Our motivational systems are being hijacked in all directions. Our children are the greatest victims of this.</h2>
+
+    <p>This part feels somewhat self-explanatory; anybody who has had access to a phone or computer with an internet connection in the past 20 years has experienced this. Our society has restructured itself from the inside out to accommodate the vast <span class="term" data-term="affordances">affordances</span> that the internet has given us. Our eyes have become the defining commodity of the twenty-first century. Entire industries have emerged with the sole mission to keep our attention on what they want us to look at. This is the <span class="term" data-term="attention economy" data-hunt="1">attention economy</span>.</p>
+
+    <p>This is not entirely bad at face value. The internet has brought us many blessings; I have no idea who I would be without my access to an intellectual <span class="term" data-term="milieu">milieu</span> that suited me. I would certainly be a less interesting, alive person without it.</p>
+
+    <p>But for every person in this game with integrity, there are ten more out there who seek to exploit our attention. Social media algorithms favour poor quality entertainment and advertising, so the average person’s algorithm is basically just <span class="term" data-term="bespoke">bespoke</span> marketing.</p>
+
+    <div class="badge-slot" data-badge="1"></div>
+
+    <p>And this is on the more benign side of things. We’ve seen the rise of massive industries like online gambling, gaming and porn, with billions of dollars poured into splintering your attention and keeping you wanting more.</p>
+
+    <p>Social media is one of the most effective tools we have for large-scale <span class="term" data-term="cognitive warfare" data-hunt="2">cognitive warfare</span>. TikTok, arguably the most popular and used social media tool of the 2020s, was developed by ByteDance, a Chinese corporation. According to the Chinese company law of 1993, any Chinese company with over 10 employees legally requires a member of the Chinese Communist Party to sit on their board. Furthermore, the Chinese government has had <span class="term" data-term="golden shares">golden shares</span> (allowing them full veto power) in ByteDance since 2019. China’s 2017 National Intelligence law now requires all Chinese companies (and individuals) to collect data and hand it over for the purposes of advancing the PRC’s aims. You show me the incentives, and I’ll show you the outcomes.</p>
+    <div class="badge-slot" data-badge="2"></div>
+
+    <p>All of this to say, we are currently facing an unprecedented attack on our attentional faculties from society at large. More and more money is spent to, intentionally or unintentionally, fracture the cognitive capabilities of the public. Our children, with their wonderful, easily impressionable, <span class="term" data-term="neuroplastic">neuroplastic</span> minds, are the greatest victims of this cognitive wild west.</p>
+
+    <div class="game" data-game="nest"></div>
+  </section>
+
+  <section class="ch" data-ch="2" data-label="Classroom">
+    <h2>Education has its work cut out for them</h2>
+
+    <p>I’m pretty sure that anyone with basic observational skills who has worked with children recently would reasonably conclude that kids right now are COOKED.</p>
+
+    <p>Our current education models are simply not good enough to make any kind of impact when put against these financial incentives. Take the traditional model of school: One teacher in front of roughly 30 students, teaching content off of a standardized, likely government mandated curriculum of information. This is broken on multiple levels:</p>
+
+    <ul>
+      <li>Putting one person in charge of maintaining 30 peoples’ attention for an hour or so feels like a <span class="term" data-term="sisyphean">sisyphean</span> task. Even in the “old world”, before the social media revolution, teachers would have a tough time with this.</li>
+      <li>Putting that aside, each student is almost certainly either ahead or behind what the teacher is saying in terms of understanding, so the content is likely too easy or too hard for them.</li>
+      <li>The syllabus content is most likely boring and outdated, so students feel no real connection or investment to the work that they're doing.</li>
+    </ul>
+
+    <div class="game" data-game="teacher"></div>
+    <div class="badge-slot" data-badge="3"></div>
+
+    <p>The quality of education that a child receives can make or break their entire futures. it’s one of the clearest drivers of upwards social mobility. It predicts basically any outcome in your life that could matter; future earnings, job stability, life expectancy, marriage rates, incarceration rates, <span class="term" data-term="recidivism">recidivism</span>, <span class="term" data-term="intergenerational mobility">intergenerational mobility</span>, the list goes on and on.</p>
+
+    <p>And so now the question is: how do we get the kids to care?</p>
+  </section>
+
+  <section class="ch" data-ch="3" data-label="The answer">
+    <h2>Gamification might be the only answer</h2>
+
+    <p>I have a pet theory that basically every industry that supports vice of some kind is “hacking” a healthy motivational system in your mind/body. The porn industry hacks the mate-seeking system in your brain and prioritizes novelty to keep people hooked. Junk food hacks the food-satiety system, creating <span class="term" data-term="macromolecular">macromolecular</span> combos that do not naturally exist in nature to keep people eating more.</p>
+    <div class="badge-slot" data-badge="7"></div>
+
+    <div class="game" data-game="hijack"></div>
+
+    <p>Video games hack our natural desire to play, build skills and gain mastery. Humans are <span class="term" data-term="teleological">teleological</span>. They like hitting their goals! This is not rocket science. In real life though, learning is slow and ambiguous. I know I’ve definitely had the experience of spending hours revising an essay only to read it again and feel like I just made it worse.</p>
+
+    <p>With games, you get to remove all of this debris from learning, and enter <span class="term" data-term="flow state" data-hunt="3">flow state</span> on demand. Clear goals, immediate feedback loops, and dynamic difficulty levels are all engineered to keep you feeling like you’re making progress. In and of itself this is not a bad thing, but it starts becoming nefarious when you chase this feeling at the exclusion of real-life goal pursuit (finding a job that is meaningful, cultivating deep relationships, having a positive impact on the world). Then, slowly, regular tasks with their regular <span class="term" data-term="dopaminergic">dopaminergic</span> rewards start to feel too hard, as your nervous system <span class="term" data-term="entrains">entrains</span> itself to the easy wins of the game.</p>
+    <div class="badge-slot" data-badge="4"></div>
+
+    <p>But what if… we implement the same principles that get us coming back to video games, and use it to teach ourselves things that are actually useful? If we set incentives right, we could hack the thing that’s hacking us, and use it to motivate us to learn useful skills! School syllabi are generally quite systematized, breaking down content that students need to know into their base constituent parts. We could use various aspects that get people hooked on games (streaks, time-limited events, easter eggs, leagues) to encourage people to learn quicker.</p>
+    <div class="badge-slot" data-badge="8"></div>
+
+    <p>The more I think about this the more I wonder why school has not been set up this way already. There have certainly been times where I have been learning things and it has felt as magical and immersive as a video game.</p>
+  </section>
+
+  <section class="ch" data-ch="6" data-label="Gamifying">
+    <h2>How do we gamify learning?</h2>
+
+    <p>I currently work at an online school called Novatio which has incorporated some of these principles. It is an AI-driven school that creates personalized learning paths for each student. Each student progresses through subjects at their own pace, being fed lessons that track what each student gets right and wrong and uses this to tailor their next sessions. The school dedicates mornings for academic time, with the rest of the school day dedicated to building life-skills projects of various kinds.</p>
+
+    <p>Because it is an online school, us guides spend a good amount of time trying to figure out what will get the kids to focus on their tasks every day. As such, we’ve run some pretty cool experiments on incentivizing focus with different rewards.</p>
+
+    <p>The school runs on a currency of XP. One XP is loosely equivalent to one minute of focused learning. The baseline expectation for students is 120xp/day or 600 a week, essentially converting to each student doing at least 2 hours of deep, focused learning a day. Exams with higher difficulty are worth more XP. Students can “Cash in” XP like an in-school currency to earn things like free time in the afternoons, working with friends, gaming with teachers, listening to music while studying, squishies and toys, basically anything that would encourage the students to focus more.</p>
+
+    <p>Students that hit their daily goals every day get to go early to a virtual games/chill room called “Rocketship” with others where they can chat, play games, watch movies and more together. Students are also encouraged to make their own personal XP goals with rewards with teachers (e.g if I earn 700xp this week, I will earn an hour of free time next week).</p>
+
+    <p>Classrooms are also designed to keep students excited and engaged, with experiments like:</p>
+
+    <ul>
+      <li>A “Class Quest” with a storyline, where the entire class has to earn certain XP to unlock the next part of the quest.</li>
+      <li>A “Power Room” where kids at the cusp of getting their daily requirement would all work together to complete their final tasks. Each time a student got to their goal, the entire group would celebrate and say bye to them as they went to Rocketship.<div class="badge-slot" data-badge="9"></div></li>
+      <li>Study skills/test prep mini games to incentivize students to get up and ready in the mornings while they’re still groggy.<div class="badge-slot" data-badge="10"></div></li>
+    </ul>
+
+    <p>The school is an interesting inversion of the traditional education model; teachers have to put effort into making learning fun for the kids. The child’s attention is the guardians’ responsibility, and their distraction is a reflection of the teachers’ competence instead of the child.</p>
+  </section>
+
+  <section class="ch" data-ch="4" data-label="The catch">
+    <h2>Is this the future that we want? Do we even have a choice?</h2>
+
+    <p class="lede">Obviously, there are some pretty strong drawbacks to gamifying learning.</p>
+
+    <p data-overjust>There’s the <span class="term" data-term="over-justification effect" data-hunt="4">over-justification effect</span>: when you introduce incentives to encourage people to do a thing, they implicitly start under-weighting the value of the task itself. A game that rewards you for reading carries the implicit assumption that reading is not a rewarding task intrinsically. Games would have to be designed carefully such that the thing that you are learning is baked into the game mechanics. This is also where I think most ed-tech companies fail; they put artificial rewards on top of the skill you have to learn (like duolingo), instead of baking the learning into the game mechanics. What if you had a video game that taught you vocabulary, where you had to say spells, and the power of the spells increased with the sophistication of the vocab you knew?</p>
+
+    <div class="game" data-game="spellbook"></div>
+
+    <p>This couples with <span class="term" data-term="Goodhart’s law" data-hunt="5">Goodhart’s law</span>: “when a measure becomes a target, it ceases to be a good measure”. Students will start optimizing the game, and not the skill itself; in the game above, the kids would just memorize the most powerful words instead of building their vocabulary skills.</p>
+    <p>Try it yourself: go back up to the spell game and cast <b>GOODHART</b>.</p>
+    <div class="badge-slot" data-badge="5"></div>
+
+    <p>Gamifying also only really works for <span class="term" data-term="kind learning environments">kind learning environments</span>. There’s no point setting clear goals and giving immediate feedback if the skills you’re looking to build are fundamentally ambiguous, like learning how to socialize. There’s just too much <span class="term" data-term="entropy">entropy</span> in social environments to engineer tight, accurate feedback loops.</p>
+
+    <p>Most importantly, there’s the question of if learning should be made more “enjoyable”, and what learning even is. In my experience, my best learning has also felt the most excruciating. Games are built to remove the moments when it feels like your brain is going to break. But that’s precisely when you’re supposed to pay more attention, that’s when your learning is the most effective. And what will happen to children whose entire experience of learning is built off of these dopaminergic stimuli? What are the implications of students spending the majority of their neuroplastic years hooked on <span class="term" data-term="variable reward">variable reward</span> systems and tight feedback loops? Will they be able to function in the real world after this, when things aren’t gamified anymore?</p>
+    <div class="badge-slot" data-badge="6"></div>
+
+    <p>But then I ask: what real world? Students are already spending the majority of their neuroplastic years addicted to variable reward systems, and in fact the behaviours being incentivised are much worse for them than foundational literacy.</p>
+
+    <p>There’s no point bringing a knife to a gunfight, right?</p>
+  </section>
+
+  <div class="essay-end ch" data-ch="7" aria-hidden="true">✦ end of essay ✦<span class="keep-note">Scroll down for the game stats!</span><span class="keep-down">▼</span></div>
+</main>
+
+<!-- Part 2: the reveal, a separate panel below the essay -->
+<div class="part-break">
+  <div class="part-tag">PART 2</div>
+  <div class="part-title">How this essay hacked you</div>
+  <div class="part-sub">The essay is over. This part is about the game you just played.</div>
+</div>
+
+<section class="paper reveal-paper ch" data-ch="5" data-label="The reveal" id="reveal">
+  <figure class="illo illo-end" data-illo="end"></figure>
+  <div id="revealBody"></div>
+</section>
+
+<!-- Floating layers: tooltip, notification card, toasts, FOMO, modal, d-pad -->
+<div id="tip" role="tooltip" hidden></div>
+<div id="toasts" aria-live="polite"></div>
+<div id="modal" hidden><div class="modal-card" role="dialog" aria-modal="true"></div></div>
+<div id="dpad" hidden></div>
+<div id="konamiTrail" hidden></div>
+
+<script src="art.js?v=3"></script>
+<script src="core.js?v=3"></script>
+<script src="games/nest.js?v=3"></script>
+<script src="games/teacher.js?v=3"></script>
+<script src="games/hijack.js?v=3"></script>
+<script src="games/spellbook.js?v=3"></script>
+<script src="reveal.js?v=3"></script>
+</body>
+</html>
